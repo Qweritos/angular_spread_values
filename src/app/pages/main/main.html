@@ -1,0 +1,24 @@
+<form ng-cloak>
+
+    <hr>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-success" ng-click="loadDataset('/api/mocks/data1.json')">Load 1st dataset</button>
+        <button type="button" class="btn btn-info" ng-click="loadDataset('/api/mocks/data2.json')">Load 2nd dataset</button>
+    </div>
+    <hr>
+
+    <div ng-repeat="item in data" class="form-group row">
+
+        <app-value-input
+                name="item.Name"
+                percent="item.Percent"
+                slider-options="sliderOptions"
+                on-change="onItemChange($index)">
+        </app-value-input>
+
+    </div>
+    <ul>
+        <li ng-repeat="item in data">{{item.Name}}: {{item.Percent}}%</li>
+    </ul>
+
+</form>
